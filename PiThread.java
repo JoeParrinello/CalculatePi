@@ -13,10 +13,18 @@ public class PiThread extends Thread{
 		superClass=supr;
 	
 	}
+	public PiThread(double start, double stop, double incr){
+		Start=start;
+		Stop=stop;
+		Increment=incr;
+	
+	}
 	public void run(){
 		for(double x=Start; x<Stop; x+=Increment){
 			Area+=Math.sqrt(1-Math.pow(x,2))*Increment*4;
-			superClass.increasePercent();
+			if (superClass!=null){
+				superClass.increasePercent();
+			}
 		}
 
 	}
