@@ -20,9 +20,9 @@ public class PiRunner{
 		steve.add(jimmy);
 		steve.setVisible(true);
 		steve.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ArrayList<PiI> threading= new ArrayList<PiI>();
+		ArrayList<PiThread> threading= new ArrayList<PiThread>();
 		for (int threads=0; threads<Threads; threads++){
-			threading.add(new PiI(threads*Increments*Slices/Threads,(threads+1)*Increments*Slices/Threads, Increments, this));
+			threading.add(new PiThread(threads*Increments*Slices/Threads,(threads+1)*Increments*Slices/Threads, Increments, this));
 			threading.get(threads).start();
 		}
 		try{

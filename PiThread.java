@@ -1,13 +1,13 @@
 //package com.g1tab.piProgram;
 
 import java.util.ArrayList;
-public class PiI extends Thread{
+public class PiThread extends Thread{
 	private double Area;
 	private double Sta;
 	private double Sto;
 	private double Inc;
 	private PiRunner superClass;
-	public PiI(double start, double stop, double incr, PiRunner supr){
+	public PiThread(double start, double stop, double incr, PiRunner supr){
 		Sta=start;
 		Sto=stop;
 		Inc=incr;
