@@ -1,3 +1,9 @@
+/*
+*PiRunner
+*
+*Jan-05-2014
+*/
+
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import java.util.ArrayList;
@@ -9,6 +15,7 @@ public class PiRunner{
 	public PiRunner(){
 		
 	}
+	
 	public PiRunner(int Threads, long Slices, double Increments){
 		ArrayList<PiThread> threading= new ArrayList<PiThread>();
 		for (int threads=0; threads<Threads; threads++){
@@ -29,6 +36,7 @@ public class PiRunner{
 		}
 		System.out.println(TotArea);
 	}
+	
 	public PiRunner(long Slices, double Increments, int Threads){
 		progressBarFrame= new JFrame();
 		progressBarFrame.setSize(500,125);
