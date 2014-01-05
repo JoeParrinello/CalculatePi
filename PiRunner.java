@@ -15,7 +15,11 @@ public class PiRunner{
 	public PiRunner(){
 		
 	}
-	
+	/*
+	*	Constructor for no GUI launching of program
+	*	Threads is the number of PiThreads to be launched
+	*	
+	*/
 	public PiRunner(int Threads, long Slices, double Increments){
 		ArrayList<PiThread> threading= new ArrayList<PiThread>();
 		for (int threads=0; threads<Threads; threads++){
@@ -66,10 +70,12 @@ public class PiRunner{
 		System.out.println(TotArea);
 		sliceProgressBar.setString("DONE!     "+TotArea);
 	}
+	
 	public synchronized void increasePercent(){
 		sliceProgressBar.setValue(sliceProgressBar.getValue()+1);
 		sliceProgressBar.setString("Slices: "+sliceProgressBar.getValue());
 	}
+	
 	public static void main(String[] args){
 		if (args.length!=0){
 			if(args[0].compareTo("-h")==0){
