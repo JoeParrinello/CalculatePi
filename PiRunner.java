@@ -20,14 +20,14 @@ public class PiRunner{
 	*	Threads is the number of PiThreads to be launched
 	*	
 	*/
-	public PiRunner(int Threads, long Slices, double Increments){
+	public PiRunner(int totalThreads, long Slices, double Increments){
 		ArrayList<PiThread> threading= new ArrayList<PiThread>();
-		for (int threads=0; threads<Threads; threads++){
-			threading.add(new PiThread(threads*Increments*Slices/Threads,(threads+1)*Increments*Slices/Threads, Increments));
+		for (int threads=0; threads<totalThreads; threads++){
+			threading.add(new PiThread(threads * Increments * Slices / totalThreads, (threads + 1) * Increments * Slices / totalThreads, Increments));
 			threading.get(threads).start();
 		}
 		try{
-			for (int threads=0; threads<Threads; threads++){
+			for (int threads=0; threads<totalThreads; threads++){
 				threading.get(threads).join();
 			}
 		}
@@ -35,13 +35,13 @@ public class PiRunner{
 		
 		}
 		double TotArea=0.0;
-		for(int threads=0; threads<Threads; threads++){
+		for(int threads=0; threads<totalThreads; threads++){
 			TotArea+=threading.get(threads).getArea();
 		}
 		System.out.println(TotArea);
 	}
 	
-	public PiRunner(long Slices, double Increments, int Threads){
+	public PiRunner(long Slices, double Increments, int totalThreads){
 		progressBarFrame= new JFrame();
 		progressBarFrame.setSize(500,125);
 		sliceProgressBar= new JProgressBar(0,(int)Slices);
@@ -51,12 +51,12 @@ public class PiRunner{
 		progressBarFrame.setVisible(true);
 		progressBarFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ArrayList<PiThread> threading= new ArrayList<PiThread>();
-		for (int threads=0; threads<Threads; threads++){
-			threading.add(new PiThread(threads*Increments*Slices/Threads,(threads+1)*Increments*Slices/Threads, Increments, this));
+		for (int threads=0; threads<totalThreads; threads++){
+			threading.add(new PiThread(threads * Increments * Slices / totalThreads, (threads + 1) * Increments * Slices / totalThreads, Increments, this));
 			threading.get(threads).start();
 		}
 		try{
-			for (int threads=0; threads<Threads; threads++){
+			for (int threads=0; threads<totalThreads; threads++){
 				threading.get(threads).join();
 			}
 		}
@@ -64,7 +64,7 @@ public class PiRunner{
 		
 		}
 		double TotArea=0.0;
-		for(int threads=0; threads<Threads; threads++){
+		for(int threads=0; threads<totalThreads; threads++){
 			TotArea+=threading.get(threads).getArea();
 		}
 		System.out.println(TotArea);
