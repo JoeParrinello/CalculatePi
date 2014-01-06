@@ -44,7 +44,7 @@ public class PiThread extends Thread{
 	*/
 	public void run(){
 		for(double x=Start; x<Stop; x+=Increment){
-			Area+=Math.sqrt(1 - Math.pow(x,2)) * Increment * 4;
+			Area+=Math.sqrt(1 - (x * x)) * Increment * 4;
 			if (superClass!=null){
 				superClass.increasePercent();
 			}
