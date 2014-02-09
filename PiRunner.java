@@ -110,6 +110,11 @@ public class PiRunner{
 		else{
 			System.out.println("No Input variables...");
 			System.out.println("Use -h option for input options");
+			System.out.println("Running with Default Settings: -nogui 999999 1");
+			new PiRunner(1, 999999, 1.0/999999);
+			System.out.println("Running with Alternative Settings: 999999 1");
+			new PiRunner(999999, 1.0/999999, 1);
+
 		}
 	}
 }
